@@ -1,7 +1,4 @@
 <template>
-    <base-card>
-    
-    </base-card>
     <stored-projects></stored-projects>
 </template>
 

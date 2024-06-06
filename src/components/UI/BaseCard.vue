@@ -10,8 +10,9 @@ div {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   margin: 2rem auto;
-  max-width: 40rem;
+  max-width: 80rem;
   /* Center the text horizontally within the #app element */
   text-align: center;
+  min-height: 20rem;
 }
 </style>
