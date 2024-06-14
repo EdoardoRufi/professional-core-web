@@ -1,14 +1,11 @@
 <template>
   <TheNavbar :types="types"></TheNavbar>
-  <the-projects :projects="projects">prova</the-projects>
-  <!--<img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-
+  <router-view></router-view>
+  <!--<projects-list :projects="projects">prova</projects-list>-->
 </template>
 
 <script>
 import TheNavbar from './components/layouts/TheNavbar.vue';
-import TheProjects from './components/projects/TheProjects.vue';
 
 export default {
   name: 'App',
@@ -18,8 +15,7 @@ export default {
     }
   },
   components: {
-    TheNavbar,
-    TheProjects
+    TheNavbar
   }
 }
 </script>

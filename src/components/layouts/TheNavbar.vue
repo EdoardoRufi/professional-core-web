@@ -15,9 +15,15 @@
         </header>
         <div v-if="menuOpen" class="side-menu">
             <ul>
-                <li @click="navigateTo('Projects')">Projects</li>
-                <li @click="navigateTo('About')">About</li>
-                <li @click="navigateTo('Contact')">Contact</li>
+                <li>
+                    <router-link to="/projects"> Projects</router-link>
+                </li>
+                <li>
+                    <router-link to="/about"> About</router-link>
+                </li>
+                <li>
+                    <router-link to="/contact"> Contact</router-link>
+                </li>
             </ul>
         </div>
     </div>
@@ -127,5 +133,16 @@ header {
 
 .side-menu li:hover {
     background-color: rgba(255, 255, 255, 0.1); /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+/* Added styles for router-link elements inside side-menu 
+because the router-link component renders an <a> tag by default*/
+.side-menu a {
+    color: white; /* Set the text color to white */
+    text-decoration: none; /* Remove the underline */
+}
+
+.side-menu a:hover {
+    color: white; /* Ensure the text color remains white on hover */
 }
 </style>
