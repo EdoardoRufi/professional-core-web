@@ -19,7 +19,11 @@
   import TheProject from './TheProject.vue';
   
   export default {
-    inject: ['projects'],
+    computed: {
+      projects() {
+        return this.$store.getters['projects/projects']
+      }
+  },
     components: {
         TheProject
     }

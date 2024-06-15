@@ -6,6 +6,7 @@
                 <span></span>
                 <span></span>
             </div>
+            <!--TODO: this should be shown only if the tab is projects or projectsDetail ( background ),  since it's a filtering of projects -->
             <div class="top-menu" >
                 <h1>
                    <span v-for="type in types" :key="type" @click="filterList(type)"> {{ type }} </span>
