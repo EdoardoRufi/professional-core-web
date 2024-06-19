@@ -1,6 +1,6 @@
   <template>
     <li>
-      <base-card><!--aggiungere onClick così che si può cliccare l'intera card per andare alla pagina del dettaglio
+      <base-card @click="navigateToDetail"><!--aggiungere onClick così che si può cliccare l'intera card per andare alla pagina del dettaglio
         inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
         <div class="card-content">
           <div class="info">
@@ -22,11 +22,14 @@
   export default {
     props: ['id', 'projectName', 'location', 'nation', 'startDate', 'size', 'sizeUnit', 'imageUrl'],
     computed: {
-    computedImageUrl() {
-      return require(`@/assets/${this.id}/frontMockImage.jpg`);
-    }
-  },
+      computedImageUrl() {
+        return require(`@/assets/${this.id}/frontMockImage.jpg`);
+      }
+    },
     methods: {
+      navigateToDetail() {
+        this.$router.push(`/projects/${this.id}`);
+        }
     }
   };
   </script>

@@ -1,10 +1,9 @@
 <template>
     <stored-projects></stored-projects>
-    <!-- TODO: add the project detail, that must be shown in front of the list-->
+    <router-view></router-view>
 </template>
 
 <script>
-
 import StoredProjects from './StoredProjects.vue';
 export default {
   
@@ -19,7 +18,7 @@ export default {
     }
   },
   components: {
-    StoredProjects
+    StoredProjects,
   }
 }
 </script>
