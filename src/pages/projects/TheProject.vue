@@ -11,7 +11,7 @@
             <p> {{ size }} {{ sizeUnit }}</p>
           </div>
           <div class="image">
-            <img :src="imageUrl" alt="Project Image" />
+            <img :src="computedImageUrl" alt="Project Image" />
           </div>
         </div>
       </base-card>
@@ -21,6 +21,11 @@
   <script>
   export default {
     props: ['id', 'projectName', 'location', 'nation', 'startDate', 'size', 'sizeUnit', 'imageUrl'],
+    computed: {
+    computedImageUrl() {
+      return require(`@/assets/${this.id}/frontMockImage.jpg`);
+    }
+  },
     methods: {
     }
   };
@@ -36,21 +41,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer; /* Change cursor to pointer to indicate the card is clickable */
   }
   
   .info {
     font-size: 0.875rem; /* Small and light font */
     font-weight: 300;
     text-align: right; /* Align text to the right */
+    flex-shrink: 0; /* Prevents the info section from shrinking */
   }
   
   .image img {
-    max-width: 10rem; /* Adjust the size of the image as needed */
-    max-height: 10rem;
+    max-width: 25rem; /* Adjust the size of the image as needed */
+    max-height: 25rem;
+    flex-grow: 1; /* Let the image take the remaining space */
     object-fit: cover;
     margin-left: 1rem;
   }
-  
+
   h3 {
     font-size: 1.0rem;
     margin: 0.5rem 0;
