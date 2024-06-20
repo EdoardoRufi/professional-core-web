@@ -28,6 +28,7 @@
     },
     methods: {
       navigateToDetail() {
+        this.$emit('project-selected', this.id);
         this.$router.push(`/projects/${this.id}`);
         }
     }

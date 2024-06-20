@@ -11,7 +11,7 @@
         :size="pro.size"
         :sizeUnit="pro.sizeUnit"
         :imageUrl="pro.imageUrl"
-      ></the-project>
+        @project-selected="handleProjectSelected" ></the-project>
     </ul>
   </template>
   
@@ -22,8 +22,14 @@
     computed: {
       projects() {
         return this.$store.getters['projects/projects']
-      }
+      },
+    
   },
+    methods: {
+      handleProjectSelected(id) {
+        this.$emit('project-selected', id);
+      }
+    },
     components: {
         TheProject
     }
