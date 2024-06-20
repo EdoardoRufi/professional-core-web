@@ -4,11 +4,11 @@
         inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
         <div class="card-content">
           <div class="info">
-            <h3>{{ selectedProject.projectName }}</h3>
-            <p> {{ selectedProject.location }}</p>
-            <p> {{ selectedProject.nation }}</p>
-            <p> {{ selectedProject.startDate }}</p>
-            <p> {{ selectedProject.size }} {{ selectedProject.sizeUnit }}</p>
+            <h3>{{ inputProject.projectName }}</h3>
+            <p> {{ inputProject.location }}</p>
+            <p> {{ inputProject.nation }}</p>
+            <p> {{ inputProject.startDate }}</p>
+            <p> {{ inputProject.size }} {{ inputProject.sizeUnit }}</p>
           </div>
           <div class="image">
             <img :src="computedImageUrl" alt="Project Image" />
@@ -23,11 +23,11 @@
     props: ['id'],
     data() {
       return {
-        selectedProject: null
+        inputProject: null
       }
     },
     created() {
-      this.selectedProject = this.$store.getters['projects/projects'].find((project) => project.id === this.id)
+      this.inputProject = this.$store.getters['projects/projects'].find((project) => project.id === this.id)
     },
     computed: {
       computedImageUrl() {
