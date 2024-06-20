@@ -11,8 +11,9 @@
             <p> {{ inputProject.size }} {{ inputProject.sizeUnit }}</p>
           </div>
           <div v-if="!ismain && order" class="info">
-            <p> {{ inputProject.location }}</p>
+            <p> {{ inputDetail.description }}</p>
           </div>
+          
           <div class="image">
             <img :src="computedImageUrl" alt="Project Image" />
           </div>
@@ -28,11 +29,15 @@ export default {
   props: ['id', 'isMain', 'order'],
   data() {
     return {
-      inputProject: null
+      inputProject: null,
+      inputDetail: null
     }
   },
   created() {
     this.inputProject = this.$store.getters['projects/projects'].find((project) => project.id === this.id)
+    if (!this.isMain && this.order) {
+      this.inputDetail = this.inputProject.details.find(detail => detail.order === this.order);
+    }
   },
   computed: {
     computedImageUrl() {
@@ -41,8 +46,10 @@ export default {
   },
   methods: {
     navigateToDetail() {
-      this.$emit('project-selected', this.id);
-      this.$router.push(`/projects/${this.id}`);
+      if (this.isMain) {
+        this.$emit('project-selected', this.id);
+        this.$router.push(`/projects/${this.id}`);
+      }
     }
   }
 };
