@@ -4,6 +4,7 @@
         v-for="pro in projects"
         :key="pro.id"
         :id="pro.id"
+        :isMain="true"
         @project-selected="handleProjectSelected" ></the-project>
     </ul>
   </template>
