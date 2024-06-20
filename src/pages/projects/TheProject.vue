@@ -4,11 +4,11 @@
         inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
         <div class="card-content">
           <div class="info">
-            <h3>{{ projectName }}</h3>
-            <p> {{ location }}</p>
-            <p> {{ nation }}</p>
-            <p> {{ startDate }}</p>
-            <p> {{ size }} {{ sizeUnit }}</p>
+            <h3>{{ selectedProject.projectName }}</h3>
+            <p> {{ selectedProject.location }}</p>
+            <p> {{ selectedProject.nation }}</p>
+            <p> {{ selectedProject.startDate }}</p>
+            <p> {{ selectedProject.size }} {{ selectedProject.sizeUnit }}</p>
           </div>
           <div class="image">
             <img :src="computedImageUrl" alt="Project Image" />
@@ -20,7 +20,15 @@
   
   <script>
   export default {
-    props: ['id', 'projectName', 'location', 'nation', 'startDate', 'size', 'sizeUnit', 'imageUrl'],
+    props: ['id'],
+    data() {
+      return {
+        selectedProject: null
+      }
+    },
+    created() {
+      this.selectedProject = this.$store.getters['projects/projects'].find((project) => project.id === this.id)
+    },
     computed: {
       computedImageUrl() {
         return require(`@/assets/${this.id}/frontMockImage.jpg`);

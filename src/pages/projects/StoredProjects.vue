@@ -4,13 +4,6 @@
         v-for="pro in projects"
         :key="pro.id"
         :id="pro.id"
-        :projectName="pro.projectName"
-        :location="pro.location"
-        :nation="pro.nation"
-        :startDate="pro.startDate"
-        :size="pro.size"
-        :sizeUnit="pro.sizeUnit"
-        :imageUrl="pro.imageUrl"
         @project-selected="handleProjectSelected" ></the-project>
     </ul>
   </template>
