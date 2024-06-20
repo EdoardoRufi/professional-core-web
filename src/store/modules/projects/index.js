@@ -15,7 +15,7 @@ export default {
             "startDate": "2024-06-05",
             "size": 100.00,
             "sizeUnit": "m2",
-            "imageUrl": "TEST_URL"
+            "imageUrl": "assets/{id}/frontMockImage.jpg"
           },
           {
             "id": 2,
@@ -25,7 +25,7 @@ export default {
             "startDate": "2024-06-05",
             "size": 100.00,
             "sizeUnit": "m2",
-            "imageUrl": "TEST_URL"
+            "imageUrl": "assets/{id}/frontMockImage.jpg"
           },
           {
             "id": 3,
@@ -35,7 +35,7 @@ export default {
             "startDate": "2024-06-05",
             "size": 100.00,
             "sizeUnit": "m2",
-            "imageUrl": "TEST_URL"
+            "imageUrl": "assets/{id}/frontMockImage.jpg"
           }
         ]
       };

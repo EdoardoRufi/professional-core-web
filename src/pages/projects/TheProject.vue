@@ -19,6 +19,7 @@
   </template>
   
   <script>
+
   export default {
     props: ['id'],
     data() {
@@ -31,7 +32,12 @@
     },
     computed: {
       computedImageUrl() {
-        return require(`@/assets/${this.id}/frontMockImage.jpg`);
+        try {
+        return require('@/'+ this.inputProject.imageUrl.replace('{id}', this.id));
+      } catch (e) {
+        console.error('Image not found at path:', e);
+        return ''; // Ritorna un percorso di immagine predefinito o lascialo vuoto
+      }
       }
     },
     methods: {
