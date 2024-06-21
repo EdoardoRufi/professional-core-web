@@ -34,11 +34,15 @@ export default {
     }
   },
   created() {
-    this.inputProject = this.$store.getters['projects/projects'].find((project) => project.id === this.id)
-    if (!this.isMain && this.order) {
-      this.inputDetail = this.inputProject.details.find(detail => detail.order === this.order);
-    }
-  },
+        console.log("theProject created di the project. id:" + this.id + ", isMain: " + this.isMain + ", order:" + JSON.stringify(this.order));
+        const projectId = parseInt(this.id, 10);
+        this.inputProject = this.$store.getters['projects/projects'].find((project) => project.id === projectId);
+        console.log("theProject  inputProject" + JSON.stringify(this.inputProject));
+        if (!this.isMain && this.order) {
+          this.inputDetail = this.inputProject.details.find(detail => detail.order === this.order);
+        }
+        console.log(" theProject inputDetail" + JSON.stringify(this.inputDetail));
+    },
   computed: {
     computedImageUrl() {
       return resolveImageUrl(this.inputProject, this.id, this.isMain, this.order);
