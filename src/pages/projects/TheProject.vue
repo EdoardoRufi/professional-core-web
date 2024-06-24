@@ -3,19 +3,27 @@
       <base-card @click="navigateToDetail"><!--aggiungere onClick così che si può cliccare l'intera card per andare alla pagina del dettaglio
         inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
         <div class="card-content">
-          <div v-if="isMain" class="info">
-            <h3>{{ inputProject.projectName }}</h3>
-            <p> {{ inputProject.location }}</p>
-            <p> {{ inputProject.nation }}</p>
-            <p> {{ inputProject.startDate }}</p>
-            <p> {{ inputProject.size }} {{ inputProject.sizeUnit }}</p>
-          </div>
-          <div v-if="!ismain && order" class="info">
-            <p> {{ inputDetail.description }}</p>
-          </div>
-          
-          <div class="image">
-            <img :src="computedImageUrl" alt="Project Image" />
+          <div class="container">
+            <div class="row">
+              <div class="info col-4">
+                <div v-if="isMain">
+                  <h3>{{ inputProject.projectName }}</h3>
+                  <p> {{ inputProject.location }}</p>
+                  <p> {{ inputProject.nation }}</p>
+                  <p> {{ inputProject.startDate }}</p>
+                  <p> {{ inputProject.size }} {{ inputProject.sizeUnit }}</p>
+                </div>
+                
+                <div v-if="!ismain && order">
+                  <p> {{ inputDetail.description }}</p>
+                </div>
+              </div>
+
+              <div class="image col-8">
+                <img :src="computedImageUrl" alt="Project Image" class="img-fluid w-100"/>
+              </div>
+            
+            </div>
           </div>
         </div>
       </base-card>
@@ -30,7 +38,7 @@ export default {
   data() {
     return {
       inputProject: null,
-      inputDetail: null
+      inputDetail: null,
     }
   },
   created() {

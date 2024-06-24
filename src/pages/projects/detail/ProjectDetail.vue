@@ -4,7 +4,6 @@
     <div class="details-container">
       <ul class="horizontal-list">
         <!--TODO: uncomment TheProject and try to make it work!-->
-        <!-- the project <ProjectDetailItem :id="id" order="000"/>-->
         <the-project :id="id" :isMain="false"></the-project>
         <the-project v-for="detail in projectDetails" :key="detail.order" :id="id" :order="detail.order" :isMain="false" />
       </ul>
@@ -14,7 +13,6 @@
 
 <script>
 import TheProject from '../TheProject.vue';
-//import TheProject from '../TheProject.vue';
 
 export default {
   props: ['id'],
