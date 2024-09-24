@@ -5,7 +5,7 @@
       <ul class="horizontal-list">
         <!--TODO: uncomment TheProject and try to make it work!-->
         <!-- the project <ProjectDetailItem :id="id" order="000"/>-->
-        <the-project :id="id" :isMain="false"></the-project>
+        <the-project :id="id" :isMain="true"></the-project>
         <the-project v-for="detail in projectDetails" :key="detail.order" :id="id" :order="detail.order" :isMain="false" />
       </ul>
     </div>
@@ -68,6 +68,7 @@ export default {
   list-style-type: none;
   padding: 0;
   margin: 0;
+
 }
 
 .horizontal-list li {

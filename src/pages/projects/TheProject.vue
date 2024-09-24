@@ -10,7 +10,7 @@
             <p> {{ inputProject.startDate }}</p>
             <p> {{ inputProject.size }} {{ inputProject.sizeUnit }}</p>
           </div>
-          <div v-if="!ismain && order" class="info">
+          <div v-if="!isMain && order" class="info">
             <p> {{ inputDetail.description }}</p>
           </div>
           
@@ -40,8 +40,8 @@ export default {
         console.log("theProject  inputProject" + JSON.stringify(this.inputProject));
         if (!this.isMain && this.order) {
           this.inputDetail = this.inputProject.details.find(detail => detail.order === this.order);
+          console.log(" theProject inputDetail:" + JSON.stringify(this.inputDetail));
         }
-        console.log(" theProject inputDetail" + JSON.stringify(this.inputDetail));
     },
   computed: {
     computedImageUrl() {
