@@ -3,7 +3,7 @@
       <base-card @click="navigateToDetail"><!--aggiungere onClick così che si può cliccare l'intera card per andare alla pagina del dettaglio
         inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
         <div class="card-content">
-          <div v-if="isMain" class="info">
+          <div v-if="isMain" class="card-content-text">
             <h3>{{ inputProject.projectName }}</h3>
             <p> {{ inputProject.location }}</p>
             <p> {{ inputProject.nation }}</p>
@@ -14,7 +14,7 @@
             <p> {{ inputDetail.description }}</p>
           </div>
           
-          <div class="image">
+          <div class="card-content-image">
             <img :src="computedImageUrl" alt="Project Image" />
           </div>
         </div>
@@ -73,17 +73,16 @@ li {
   /* Change cursor to pointer to indicate the card is clickable */
 }
 
-.info {
+.card-content-text {
+  /*flex-basis: 100%;
+  /* Fa sì che la descrizione occupi l'intera larghezza quando necessario */
+  text-align: left;
   font-size: 0.875rem;
-  /* Small and light font */
-  font-weight: 300;
-  text-align: right;
-  /* Align text to the right */
-  flex-shrink: 0;
-  /* Prevents the info section from shrinking */
+  /*word-wrap: break-word; /* Forza la rottura del testo lungo */
+  word-break: break-word;
 }
 
-.image img {
+.card-content-image img {
   max-width: 25rem;
   /* Adjust the size of the image as needed */
   max-height: 25rem;
