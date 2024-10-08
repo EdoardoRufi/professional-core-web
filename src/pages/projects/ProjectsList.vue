@@ -1,6 +1,6 @@
 <template>
     <stored-projects @project-selected="setSelectedId" :class="{'blur': selectedId}"></stored-projects>
-    <div v-if="selectedId" class="detail-overlay">
+    <div v-if="selectedId" class="detail-overlay d-flex justify-content-center align-items-center">
       <router-view></router-view>
     </div>
 </template>
@@ -51,9 +51,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
 }

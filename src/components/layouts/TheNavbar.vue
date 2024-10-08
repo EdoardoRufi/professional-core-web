@@ -7,7 +7,7 @@
 
     <!-- Center Navbar Content: Visible only on screens larger than md -->
     <div class="d-none d-md-flex justify-content-center flex-grow-1">
-      <span v-for="type in types" :key="type" @click="filterList(type)" style="color: white;" class="mx-2">
+      <span v-for="type in types" :key="type" @click="filterList(type)" style="color: white;" class="mx-5">
         {{ type }}
       </span>
     </div>
@@ -36,13 +36,13 @@
       <!-- Navigation Links in Offcanvas -->
       <ul class="list-unstyled">
         <li>
-          <router-link to="/projects" @click="navigateTo('/projects')" class="text-white"> Projects</router-link>
+          <router-link to="/projects" @click="navigateTo()" class="text-white"> Projects</router-link>
         </li>
         <li>
-          <router-link to="/about" @click="navigateTo('/about')" class="text-white"> About</router-link>
+          <router-link to="/about" @click="navigateTo()" class="text-white"> About</router-link>
         </li>
         <li>
-          <router-link to="/contact" @click="navigateTo('/contact')" class="text-white"> Contact</router-link>
+          <router-link to="/contact" @click="navigateTo()" class="text-white"> Contact</router-link>
         </li>
       </ul>
     </div>
@@ -68,9 +68,7 @@ export default {
         toggleMenu() {
             this.menuOpen = !this.menuOpen;
         },
-        navigateTo(section) {
-            // Aggiungi la logica per navigare alla sezione desiderata
-            console.log('navigate to: '+ section);
+        navigate() {
             // Chiusura dell'offcanvas
             const offcanvasElement = document.getElementById('offcanvasNavbar');
             const offcanvasInstance = window.bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
