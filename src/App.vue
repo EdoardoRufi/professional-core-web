@@ -35,6 +35,6 @@ export default {
   /*color: #2c3e50;*/
 
   /* Add a 100px margin at the top of the #app element to create space above it */
-  margin-top: 100px;
+  /*margin-top: 100px;*/
 }
 </style>
