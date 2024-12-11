@@ -1,23 +1,26 @@
   <template>
-    <li>
-      <base-card @click="navigateToDetail"><!--aggiungere onClick così che si può cliccare l'intera card per andare alla pagina del dettaglio
-        inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
-        <div class="card-content">
-          <div v-if="isMain" class="card-content-text">
+    <li class="mx-auto" style="max-width: 40rem;">
+      <base-card @click="navigateToDetail">
+        <!--inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
+        <template #left-slot>
+          <div v-if="isMain" class="card-content-text border border-1">
             <h3>{{ inputProject.projectName }}</h3>
             <p> {{ inputProject.location }}</p>
             <p> {{ inputProject.nation }}</p>
             <p> {{ inputProject.startDate }}</p>
             <p> {{ inputProject.size }} {{ inputProject.sizeUnit }}</p>
           </div>
-          <div v-if="!isMain && order" class="info">
+          <div v-if="!isMain && order" class="card-content-text">
             <p> {{ inputDetail.description }}</p>
           </div>
-          
-          <div class="card-content-image">
-            <img :src="computedImageUrl" alt="Project Image" />
+        </template>
+        
+        <template #right-slot>
+          <div class="card-content-image  border border-1 text-center">
+            <img :src="computedImageUrl" 
+            alt="Project Image"/>
           </div>
-        </div>
+        </template>
       </base-card>
     </li>
   </template>
@@ -60,55 +63,34 @@ export default {
 </script>
 
 <style scoped>
-li {
-  margin: auto;
-  max-width: 40rem;
-}
-
-.card-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  /* Change cursor to pointer to indicate the card is clickable */
-}
 
 .card-content-text {
-  /*flex-basis: 100%;
-  /* Fa sì che la descrizione occupi l'intera larghezza quando necessario */
   text-align: left;
-  font-size: 0.875rem;
-  /*word-wrap: break-word; /* Forza la rottura del testo lungo */
-  word-break: break-word;
+  word-break: break-word; /* Mantiene il testo leggibile */
 }
-
+.card-content-image {
+  width: 100%;
+  height: 100%; /* Mantiene le proporzioni */
+  max-height: 15rem; /* Imposta un'altezza massima (se necessario) */
+  overflow: hidden; /* Nasconde eventuali parti eccedenti */
+  display: flex; /* Centra il contenuto */
+  /*capire con quale combinazione le immagini non vengono distorte*/
+  /*justify-content: center; /* Centra orizzontalmente */
+  /*align-items: center; /* Centra verticalmente */
+}
 .card-content-image img {
-  max-width: 25rem;
-  /* Adjust the size of the image as needed */
-  max-height: 25rem;
-  flex-grow: 1;
-  /* Let the image take the remaining space */
-  object-fit: cover;
-  margin-left: 1rem;
+  max-width: 100%; /* Limita la larghezza all'interno del contenitore */
+  max-height: 100%;
+  /*capire con quale combinazione le immagini non vengono distorte*/
+  /*object-fit: cover; /* Ritaglia l'immagine per riempire lo spazio */
 }
 
 h3 {
   font-size: 1.0rem;
-  margin: 0.5rem 0;
+  margin-bottom: 10px;
 }
 
 p {
-  margin: 0.25rem 0;
-  /* Adjusted margin for a more compact look */
-}
-
-a {
-  text-decoration: none;
-  color: #ce5c00;
-}
-
-a:hover,
-a:active {
-  color: #c89300;
+  margin-bottom: 1px;
 }
 </style>

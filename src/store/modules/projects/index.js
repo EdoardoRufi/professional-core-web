@@ -50,7 +50,7 @@ export default {
           },
           {
             "id": 3,
-            "projectName": "Loft di brambuzz",
+            "projectName": "Loft di brambuzzzzzzzzzzzzzzzzzzzzzzz",
             "location": "Napoli",
             "nation": "Italia",
             "startDate": "2024-06-05",
