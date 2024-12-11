@@ -6,7 +6,7 @@
     <router-link to="/projects" class="navbar-brand">home icon</router-link>
 
     <!-- Center Navbar Content: Visible only on screens larger than md -->
-    <div class="d-none d-md-flex justify-content-center flex-grow-1">
+    <div class="d-none d-lg-flex justify-content-center flex-grow-1">
       <span v-for="type in types" :key="type" @click="filterList(type)" style="color: white;" class="mx-5">
         {{ type }}
       </span>
