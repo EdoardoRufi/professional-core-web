@@ -3,7 +3,7 @@
       <base-card @click="navigateToDetail">
         <!--inoltre sarebbe bello che l'immagine è in bianco e nero, ma passando il mouse sull'immagine si colora-->
         <template #left-slot>
-          <div v-if="isMain" class="card-content-text border border-1">
+          <div v-if="isMain" class="card-content-text">
             <h3>{{ inputProject.projectName }}</h3>
             <p> {{ inputProject.location }}</p>
             <p> {{ inputProject.nation }}</p>

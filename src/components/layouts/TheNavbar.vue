@@ -3,7 +3,7 @@
     <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid d-flex justify-content-between align-items-center">
     <!-- Home Icon (always left) -->
-    <router-link to="/projects" class="navbar-brand">home icon</router-link>
+    <router-link to="/projects" class="navbar-brand" @click="filterList('All')">home icon</router-link>
 
     <!-- Center Navbar Content: Visible only on screens larger than md -->
     <div class="d-none d-lg-flex justify-content-center flex-grow-1">
@@ -54,6 +54,8 @@
 </template>
 
 <script>
+
+import { mapActions } from 'vuex';
 export default {
     props: ['types'],
     data() {
@@ -61,9 +63,9 @@ export default {
         };
     },
     methods: {
+        ...mapActions('projects/filters', ['updateFilter']),
         filterList(type) {
-            // Aggiungi la logica per filtrare la lista in base al valore di type
-            console.log(type);
+            this.updateFilter(type); 
         },
         toggleMenu() {
             this.menuOpen = !this.menuOpen;

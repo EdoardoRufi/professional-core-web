@@ -1,9 +1,12 @@
 import mutations from './mutations.js';
 import actions from './actions.js';
 import getters from './getters.js';
-
+import filters from './filters';
 export default {
     namespaced: true,
+    modules: {
+      filters
+    },
     state() {
       return {
         projects: [
@@ -16,6 +19,7 @@ export default {
             "size": 100.00,
             "sizeUnit": "m2",
             "imageUrl": "assets/{id}/frontMockImage.jpg",
+            "type": "Engineering",
             "details" : [ {
               "order" : "001",
               "description": "A beautiful house",
@@ -46,7 +50,8 @@ export default {
             "startDate": "2024-06-05",
             "size": 100.00,
             "sizeUnit": "m2",
-            "imageUrl": "assets/{id}/frontMockImage.jpg"
+            "imageUrl": "assets/{id}/frontMockImage.jpg",
+            "type": "Landscape"
           },
           {
             "id": 3,
@@ -56,7 +61,8 @@ export default {
             "startDate": "2024-06-05",
             "size": 100.00,
             "sizeUnit": "m2",
-            "imageUrl": "assets/{id}/frontMockImage.jpg"
+            "imageUrl": "assets/{id}/frontMockImage.jpg",
+            "type": "Architecture"
           }
         ]
       };
